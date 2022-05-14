@@ -18,27 +18,24 @@ function ShoppingList({ items }) {
 
   console.log(items);
 
-  const itemsToDisplay = items.filter((item) => {
-    console.log(searchTerm.length);
-    console.log(searchTerm);
-    // tried adding if statement that doent work
-    if (selectedCategory === "All" && searchTerm.length === 0) {
-      return true;
-    }
-    return item.category === selectedCategory;
-  });
-
-  // tried making seperate function, but how do i use this?
-  const itemsToDisplaySearch = items.filter((item) => {
-    if (item.name === searchTerm || searchTerm === "") return true;
-  });
+  const itemsToDisplay = items
+    .filter((item) => {
+      return selectedCategory === "All" || item.category === selectedCategory;
+    })
+    .filter((item) => {
+      return (
+        item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        searchTerm === ""
+      );
+    });
 
   return (
     <div className="ShoppingList">
       <ItemForm />
       <Filter
+        search={searchTerm}
         onCategoryChange={handleCategoryChange}
-        onSearchChange={searchTerm}
+        onSearchChange={handleOnSearchChange}
         handleOnSearchChange={handleOnSearchChange}
       />
       <ul className="Items">

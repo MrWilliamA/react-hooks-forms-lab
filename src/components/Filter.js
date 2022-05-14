@@ -1,6 +1,11 @@
 import React from "react";
 
-function Filter({ onCategoryChange, onSearchChange, handleOnSearchChange }) {
+function Filter({
+  search,
+  onCategoryChange,
+  onSearchChange,
+  handleOnSearchChange,
+}) {
   // function onSearchChange(event) {
   //   setSearchTerm(event.target.value);
 
@@ -12,8 +17,8 @@ function Filter({ onCategoryChange, onSearchChange, handleOnSearchChange }) {
         type="text"
         name="search"
         placeholder="Search..."
-        value={onSearchChange}
-        onChange={handleOnSearchChange}
+        value={search}
+        onChange={onSearchChange}
       />
       <select name="filter" onChange={onCategoryChange}>
         <option value="All">Filter by category</option>
