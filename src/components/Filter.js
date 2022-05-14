@@ -1,16 +1,6 @@
 import React from "react";
 
-function Filter({
-  search,
-  onCategoryChange,
-  onSearchChange,
-  handleOnSearchChange,
-}) {
-  // function onSearchChange(event) {
-  //   setSearchTerm(event.target.value);
-
-  // }
-
+function Filter({ search, onCategoryChange, onSearchChange }) {
   return (
     <div className="Filter">
       <input

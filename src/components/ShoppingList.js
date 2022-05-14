@@ -36,7 +36,6 @@ function ShoppingList({ items }) {
         search={searchTerm}
         onCategoryChange={handleCategoryChange}
         onSearchChange={handleOnSearchChange}
-        handleOnSearchChange={handleOnSearchChange}
       />
       <ul className="Items">
         {itemsToDisplay.map((item) => (
